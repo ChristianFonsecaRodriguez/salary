@@ -44,3 +44,9 @@ if __name__ == '__main__':
     # GUARDAR MODELO
     final_best = finalize_model(tuned_best)
     save_model(final_best,'salary')
+
+    # GENERAR API FASTAPI
+    create_api(final_best, 'salary_docker')
+
+    # CREAR DOCKER
+    create_docker('salary_docker')
