@@ -8,8 +8,10 @@ ADD . /app
 
 RUN apt-get update && apt-get install -y libgomp1
 
-RUN pip install -r requirements.txt
+RUN apt-get update && apt-get install -y libpq-dev build-essential
 
-EXPOSE 8000
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python", "salary_docker.py"]    
+EXPOSE 8888
+
+CMD ["python", "salary_docker.py"]  
